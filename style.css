@@ -96,6 +96,7 @@ label[for='inpComment'] {
 #btnClear:hover {
   transform: scale(1.05);
 }
+
 #btnDark {
   width: 140px;
   height: 60px;
