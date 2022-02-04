@@ -9,15 +9,11 @@ header {
   margin-bottom: 22px;
 }
 header h1 {
-  font-size: 36px;
-  font-weight: 700;
-}
-header p {
-  font-size: 22px;
+  font-family: 'Pacifico', cursive;
+  font-size: 48px;
 }
 
 .sec__input {
-  /* border: 1px solid black; */
   border-radius: 12px;
   padding: 16px;
   margin-bottom: 22px;
