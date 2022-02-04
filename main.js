@@ -48,8 +48,8 @@ function paintMood(mood) {
   li.appendChild(div)
   li.appendChild(h2);
   li.appendChild(p);
-  footer.appendChild(button);
   li.appendChild(footer);
+  li.appendChild(button);
   list.appendChild(li);
 }
 
