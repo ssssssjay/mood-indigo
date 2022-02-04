@@ -1,18 +1,23 @@
+const inpColor = document.querySelector('#inpColor');
 const inpComment = document.querySelector('#inpComment');
 const btnSubmit = document.querySelector('#btnSubmit');
 const btnClear = document.querySelector('#btnClear');
-const inpColor = document.querySelector('#inpColor');
 const list = document.querySelector('#list');
 const label = document.querySelector('label')
 
-let moodList = [];
 
 function clearAll() {
   localStorage.removeItem('moods');
   window.location.reload();
 }
-
 btnClear.addEventListener('click', clearAll);
+
+function paintColor() {
+  label.innerText = inpColor.value;
+}
+inpColor.addEventListener('input', paintColor);
+
+let moodList = [];
 
 function saveMood() {
   localStorage.setItem('moods', JSON.stringify(moodList))
@@ -70,11 +75,6 @@ function submitMood() {
   }
 }
 
-function paintColor() {
-  label.innerText = inpColor.value;
-}
-
-inpColor.addEventListener('input', paintColor);
 btnSubmit.addEventListener('click', submitMood);
 
 const savedMoods = localStorage.getItem('moods');
@@ -84,6 +84,3 @@ if (savedMoods !== null) {
   moodList = parsedMoods;
   parsedMoods.forEach(paintMood);
 }
-// html2canvas(document.querySelector("#id")).then(canvas => {
-//   document.body.appendChild(canvas)
-// });
