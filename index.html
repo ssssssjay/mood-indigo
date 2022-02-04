@@ -4,93 +4,42 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>뚜두뚜두</title>
+  <link rel="stylesheet" href="./reset.css">
+  <link rel="stylesheet" href="./style.css">
+  <!-- <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script> -->
+  <title>mood-indigo</title>
 </head>
 <body>
-  <header>
-    <h1>mood indigo</h1>
-    <p>write your mood with color</p>
-  </header>
-  <section class="sec__input">
-    <input type="color" name="" id="inpColor" value="#146DE1">
-    <input type="text" id="inpComment">
-    <button type="button" id="btnSubmit">전송!</button>
-    <button type="button" id="btnClear">모두삭제</button>
-  </section>
-  <ol id="list">
-  </ol>
+  <main>
+    <header>
+      <h1>mood indigo</h1>
+    </header>
+    <section class="sec__input">
+      <div class="wrap__color">
+        <input type="color" id="inpColor" value="#146DE1">
+        <label for="inpColor"># Pick me!</label>
+      </div>
+      <div class="wrap__comment">
+        <label for="inpComment">comment your mood with color 🎨</label>
+        <input type="text" id="inpComment" placeholder="write your...">
+      </div>
+      <div class="wrap__btn">
+        <button type="button" id="btnSubmit">Submit</button>
+        <button type="button" id="btnClear">Clear All</button>
+        <button type="button" id="btnDark">야간</button>
+      </div>
+    </section>
+    <ol id="list">
+      <li id="id">
+        <div class="color"></div>
+        <h2>it's #aaaaaa</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisici maxime.</p>
+        <button onclick="">🗑</button>
+        <footer>2022.01.01 00:00</footer>
+      </li>
+    </ol>
+  </main>
 
-  <script>
-    const inpComment = document.querySelector('#inpComment');
-    const btnSubmit = document.querySelector('#btnSubmit');
-    const btnClear = document.querySelector('#btnClear');
-    const inpColor = document.querySelector('#inpColor');
-    const list = document.querySelector('#list');
-
-    let moodList = [];
-
-    function clearAll() {
-      localStorage.removeItem('moods');
-      window.location.reload();
-    }
-
-    btnClear.addEventListener('click', clearAll);
-
-    function saveMood() {
-      localStorage.setItem('moods', JSON.stringify(moodList))
-    }
-
-    function deleteMood(e) {
-      const li = e.target.parentElement;
-      li.remove();
-      moodList = moodList.filter((mood) => mood.id !== li.id);
-      saveMood();
-    }
-
-    function paintMood(mood) {
-      const li = document.createElement("li");
-      li.id = mood.id;
-      const h2 = document.createElement('h2');
-      h2.innerText = `it's ${mood.color}`;
-      // h2.className = '별명'
-      h2.classList.add('classlist1')
-      h2.classList.add('classlist2')
-      const p = document.createElement('p')
-      p.innerText = mood.content
-      const button = document.createElement('button');
-      button.innerText = '🗑';
-      button.addEventListener('click', deleteMood);
-      const footer = document.createElement('footer');
-      footer.innerText = mood.id
-      li.appendChild(h2);
-      li.appendChild(p);
-      li.appendChild(button);
-      li.appendChild(footer);
-      list.appendChild(li);
-    }
-
-    function submitMood() {
-      const newMood = inpComment.value;
-      inpComment.value = '';
-      const newMoodObj = {
-        id : new Date(),
-        content : newMood,
-        color : inpColor.value
-      };
-      moodList.push(newMoodObj);
-      paintMood(newMoodObj);
-      saveMood();
-    }
-
-    btnSubmit.addEventListener('click', submitMood);
-
-    const savedMoods = localStorage.getItem('moods');
-
-    if (savedMoods !== null) {
-      const parsedMoods = JSON.parse(savedMoods);
-      moodList = parsedMoods;
-      parsedMoods.forEach(paintMood);
-    }
-  </script>
+  <script src="./main.js"></script>
 </body>
 </html>
