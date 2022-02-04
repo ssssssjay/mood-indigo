@@ -115,6 +115,7 @@ label[for='inpComment'] {
   display: flex;
   flex-wrap: wrap;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  justify-content: flex-end;
 }
 
 #list li:nth-child(3n) {
@@ -130,6 +131,7 @@ label[for='inpComment'] {
 #list h2 {
   font-size: 22px;
   font-weight: 700;
+  width: 100%;
 }
 
 #list p {
@@ -140,9 +142,13 @@ label[for='inpComment'] {
 #list footer {
   width: 100%;
 }
-footer button:hover {
+#list button {
+  justify-items: flex-end;
+  font-size: 20px;
+}
+#list button:hover {
   transition: 0.2s;
 }
-footer button:hover {
+#list button:hover {
   transform: scale(1.2);
 }

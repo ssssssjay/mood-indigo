@@ -5,6 +5,8 @@ const btnClear = document.querySelector('#btnClear');
 const list = document.querySelector('#list');
 const label = document.querySelector('label')
 
+const savedMoods = localStorage.getItem('moods');
+let moodList = [];
 
 function clearAll() {
   localStorage.removeItem('moods');
@@ -17,7 +19,6 @@ function paintColor() {
 }
 inpColor.addEventListener('input', paintColor);
 
-let moodList = [];
 
 function saveMood() {
   localStorage.setItem('moods', JSON.stringify(moodList))
@@ -59,13 +60,14 @@ function submitMood() {
     inpComment.value = '';
     label.innerText = '# Pick me!';
     const date = new Date();
-    const y = `${date.getFullYear()}`;
-    const m = `${date.getMonth() + 1}`;
-    const d = `${date.getDate()}`;
-    const h = `${date.getHours()}`;
-    const min = `${date.getMinutes()}`;
+    // const y = `${date.getFullYear()}`;
+    // const m = `${date.getMonth() + 1}`;
+    // const d = `${date.getDate()}`;
+    // const h = `${date.getHours()}`;
+    // const min = `${date.getMinutes()}`;
     const newMoodObj = {
-      id: y + '.' + m.padStart(2,0) + '.' + d.padStart(2,0) + ' ' + h.padStart(2,0) + ':' + min.padStart(2,0),
+      // id: y + '.' + m.padStart(2,0) + '.' + d.padStart(2,0) + ' ' + h.padStart(2,0) + ':' + min.padStart(2,0),
+      id: date.toLocaleString(),
       content: newMood,
       color: inpColor.value
     };
@@ -77,7 +79,6 @@ function submitMood() {
 
 btnSubmit.addEventListener('click', submitMood);
 
-const savedMoods = localStorage.getItem('moods');
 
 if (savedMoods !== null) {
   const parsedMoods = JSON.parse(savedMoods);
