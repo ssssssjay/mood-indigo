@@ -118,7 +118,6 @@ label[for='inpComment'] {
   display: flex;
   flex-wrap: wrap;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  transition: 1s;
 }
 
 #list li:nth-child(3n) {
@@ -128,7 +127,7 @@ label[for='inpComment'] {
   width: 266px;
   height: 60px;
   border-radius: 12px;
-  background-color: tomato;
+  background-color: #000000;
 }
 
 #list h2 {
@@ -138,14 +137,15 @@ label[for='inpComment'] {
 
 #list p {
   width: 100%;
+  font-size: 18px;
 }
 
-#list button {
-  width: 20%;
-  height: 32px;
-}
-  
 #list footer {
-  width: 80%;
-  height: 32px;
+  width: 100%;
+}
+footer button:hover {
+  transition: 0.2s;
+}
+footer button:hover {
+  transform: scale(1.2);
 }
