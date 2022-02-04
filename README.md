@@ -1,7 +1,7 @@
 # mood-indigo
 
 ## 배포
-깃헙 페이지 배포 : https://ssssssjay.github.io/mood-indigo/
+깃헙 페이지 배포 : https://ssssssjay.github.io/mood-indigo/index.html
 
 ## 기능 및 개요
 - 그 날의 기분에 따라 색깔과 코멘트를 간단히 작성하여 저장할 수 있는 웹 앱 입니다.
